@@ -17,24 +17,17 @@ This project automates the process of creating and publishing articles on Medium
 
 - Python 3.x
 - API keys for the following services:
-  - [OpenAI](https://openai.com/) - to access GPT-3 models
-  - [AssemblyAI](https://www.assemblyai.com/) - for video transcription
-  - [DALL-E](https://openai.com/dall-e-2/) - for image generation
-- Medium account with publishing access
+  - [OpenAI](https://openai.com/) - to access GPT-3.5 and above models
+- Medium account with publishing access (Medium Integration Token)
 
 ### Configuration
 
-- Clone the repository: `git clone https://github.com/<username>/medium-automation.git`
+- Clone the repository: `git clone https://github.com/indishmarketer/Medium-Automation.git`
 - Install dependencies: `pip install -r requirements.txt` 
-- Create a `.env` file with your API keys like:
-
-```
-OPENAI_API_KEY=xxxxxxxxxxxx
-ASSEMBLYAI_API_KEY=xxxxxxxxxxxx  
-DALLE_API_KEY=xxxxxxxxxxxx
-```
-
-- Update `medium_publisher.py` with your Medium username and password
+- Update `medium_story_creator.py`with your OpenAI API key.
+- Update `medium_userid.py`with your Medium integration token
+- Get your Medium User ID 
+- Update `medium_publisher.py` with your Medium integration token and User ID.
 
 ### Usage
 
@@ -45,8 +38,8 @@ DALLE_API_KEY=xxxxxxxxxxxx
 
 ## Customization
 
-- You can tweak the GPT-3 model, sleep timer and prompts in `main.py`
-- Additional prompts are defined in `medium_prompts.py`
+- You can tweak the GPT models and sleep timer in `main.py`
+- You can change the promots in `medium_prompts.py`
 - Video transcription is handled by `transcripter.py`
 - GPT-3 article generation happens in `medium_story_creator.py` 
 - Publishing to Medium using `medium_publisher.py`
@@ -57,6 +50,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- [OpenAI](https://openai.com/) for the GPT-3 API
-- [AssemblyAI](https://www.assemblyai.com/) for video transcription API
-- [DALL-E](https://openai.com/dall-e-2/) for image generation API
+- [OpenAI](https://openai.com/) for the GPT and DALL-E API
