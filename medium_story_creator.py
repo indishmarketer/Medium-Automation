@@ -1,7 +1,7 @@
 import openai
 import requests
 
-key = "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"
+key = "YOUR_OPENAI_API_KEY"
 openai.api_key = key
 selected_model = "gpt-3.5-turbo-16k"
 

@@ -3,8 +3,8 @@ import json
 
 def publish_medium_story(title, content, tags):
     # Set your access token and user ID
-    access_token = "27ed4ff6393804935c67d60f45a58e832eb59043197fb0c86a5b942271f011134"
-    user_id = "1a3d38180fec82a2df6bcca394d9c05447cd3badade77a7f4dc24a72cfcb784a1"
+    access_token = "MEDIUM_INTEGRATION_TOKEN"
+    user_id = "MEDIUM_USER_ID"
 
     # Convert the string representation to an actual list
     tags_list = json.loads(tags)
