@@ -1,7 +1,7 @@
 import requests
 
 # Set your access token
-access_token = "MEDIUM_USER_ID"
+access_token = "MEDIUM_INTEGRATION_TOKEN"
 
 # Set the API endpoint
 api_url = "https://api.medium.com/v1/me"
