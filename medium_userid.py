@@ -30,6 +30,7 @@ if response.status_code == 200:
     imageUrl = user_data["imageUrl"]
 
     # Print or use the user details as needed
+    print("")
     print(f"User ID: {user_id}")
     print(f"Username: {username}")
     print(f"Name: {name}")
