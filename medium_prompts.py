@@ -1,36 +1,37 @@
 prompt_for_headings = """Generate all the chapters or subheadings for this [CONTENT]. Ensure that no part of the CONTENT is overlooked and format the Chapters as concise subheadings.
 CONTENT = {content}"""
 
-prompt_for_article = """"Convert the provided [content] into an engaging blog post by formatting it with the specified [headings].
+prompt_for_article = """Write an engaging blog post by formatting the provided [content] with the specified [headings], ensuring the original sentences remain unchanged.
 
-Guidelines:
+**Guidelines:**
 
-1. Ensure all provided headings are utilized in the post.
-2. Aim to create a lengthy, comprehensive post.
-3. Use simple English words and match the writing style of the content.
-4. Do not add additional information beyond what is provided in the content.
+1. Incorporate all provided headings into the post.
+2. Maintain the original sentence structure without alteration.
+3. Utilize simple English vocabulary consistent with the provided content's style.
+4. Do not introduce new information beyond the provided content.
 
-content: {transcription}
+**Content:**
+{transcription}
 
-headings: {subheadings}
+**Headings:**
+{subheadings}
 
-Important notes: Please create a lengthy post, do not shorten. Also ensure all guidelines are followed."""
+**Important Notes:** 
+- Create a substantial post; do not shorten it.
+- Adhere to all guidelines strictly.
 
-prompt_for_html_formatting = """Format the following blog post text using:
+**Requirements:**
+1. Use an H1 tag for the title.
+2. Utilize H2 tags for section headings.
+3. Employ P tags for paragraphs.
+4. Exclude full HTML, head, or body tags.
 
-1. An H1 tag for the title
-2. H2 tags for section headings
-3. P tags for paragraphs
-4. An IMG tag after the first paragraph to include the image provided
-5. No need for full HTML, head or body tags.
+**Output:**
+Provide the formatted blog content using H1, H2, and P tags correctly.
 
-Blog Post = {blog_post}
-
-Image = {image}
-
-Output just the formatted blog content using the H1, H2, P, and IMG tags properly
-
-Caution: Avoid placing the IMG tag at the end of the post. Insert the IMG tag only after the first <p> tag."""
+**Output Format:**
+HTML format
+"""
 
 image_prompt = """A stock footage style image visually representing the concept and ideas expressed in a blog post titled '{blog_post_title}'"""
 

@@ -41,29 +41,22 @@ def main():
                 logging.info("--- Step 2: Generating Medium Article ---")
                 logging.info("Medium Article: {}".format(medium_article))
 
-                story_title_original = medium_story_creator.generate_title(medium_article)
-                story_title = story_title_original.replace('"', '')
-
-                logging.info("--- Step 3: Generating Title ---")
-                logging.info("Title with quotations: {}".format(story_title_original))
-                logging.info("Title without quotations: {}".format(story_title))
-
-                prompt_3 = medium_prompts.image_prompt.format(blog_post_title=story_title)
-                image_url = medium_story_creator.generate_image(prompt_3)
-
-                logging.info("--- Step 4: Generating Image ---")
-                logging.info("Image URL: {}".format(image_url))
-
-                prompt_4 = medium_prompts.prompt_for_html_formatting.format(blog_post=medium_article, image=image_url)
-                html_formatted_article = medium_story_creator.html_formatting(prompt_4, selected_model)
-
                 logging.info("--- Step 5: HTML Formatting ---")
+                html_formatted_article = medium_story_creator.html_formatting(medium_article, image_url)
                 logging.info("HTML Formatted Article: {}".format(html_formatted_article))
 
-                prompt_5 = medium_prompts.tags_prompt.format(title=story_title)
-                tags_for_story = medium_story_creator.medium_story_tags_create(prompt_5)
+                logging.info("--- Step 3: Generating Title ---")
+                story_title = medium_story_creator.generate_title(html_formatted_article)
+                logging.info("Story Title: {}".format(story_title))
+
+                logging.info("--- Step 4: Generating Image ---")
+                prompt_3 = medium_prompts.image_prompt.format(blog_post_title=story_title)
+                image_url = medium_story_creator.generate_image(prompt_3)
+                logging.info("Image URL: {}".format(image_url))
 
                 logging.info("--- Step 6: Generating Tags ---")
+                prompt_5 = medium_prompts.tags_prompt.format(title=story_title)
+                tags_for_story = medium_story_creator.medium_story_tags_create(prompt_5)
                 logging.info("Tags for Story: {}".format(tags_for_story))
 
                 success = medium_publisher.publish_medium_story(story_title, html_formatted_article, tags_for_story)
