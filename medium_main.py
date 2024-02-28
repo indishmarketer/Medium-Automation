@@ -35,15 +35,10 @@ def main():
                 headings = medium_story_creator.generate_headings(prompt_1, selected_model)
                 logging.info("Headings: {}".format(headings))
 
-                prompt_2 = medium_prompts.prompt_for_article.format(transcription=transcript, subheadings=headings)
-                medium_article = medium_story_creator.generate_medium_article(prompt_2, selected_model)
-
                 logging.info("--- Step 2: Generating Medium Article ---")
                 logging.info("Medium Article: {}".format(medium_article))
-
-                logging.info("--- Step 5: HTML Formatting ---")
-                html_formatted_article = medium_story_creator.html_formatting(medium_article, image_url)
-                logging.info("HTML Formatted Article: {}".format(html_formatted_article))
+                prompt_2 = medium_prompts.prompt_for_article.format(transcription=transcript, subheadings=headings)
+                medium_article = medium_story_creator.generate_medium_article(prompt_2, selected_model)
 
                 logging.info("--- Step 3: Generating Title ---")
                 story_title = medium_story_creator.generate_title(medium_article)
@@ -53,6 +48,10 @@ def main():
                 prompt_3 = medium_prompts.image_prompt.format(blog_post_title=story_title)
                 image_url = medium_story_creator.generate_image(prompt_3)
                 logging.info("Image URL: {}".format(image_url))
+
+                logging.info("--- Step 5: HTML Formatting ---")
+                html_formatted_article = medium_story_creator.html_formatting(medium_article, image_url)
+                logging.info("HTML Formatted Article: {}".format(html_formatted_article))
 
                 logging.info("--- Step 6: Generating Tags ---")
                 prompt_5 = medium_prompts.tags_prompt.format(title=story_title)
