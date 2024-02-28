@@ -36,9 +36,9 @@ def main():
                 logging.info("Headings: {}".format(headings))
 
                 logging.info("--- Step 2: Generating Medium Article ---")
-                logging.info("Medium Article: {}".format(medium_article))
                 prompt_2 = medium_prompts.prompt_for_article.format(transcription=transcript, subheadings=headings)
                 medium_article = medium_story_creator.generate_medium_article(prompt_2, selected_model)
+                logging.info("Medium Article: {}".format(medium_article))
 
                 logging.info("--- Step 3: Generating Title ---")
                 story_title = medium_story_creator.generate_title(medium_article)
