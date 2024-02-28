@@ -76,9 +76,7 @@ def generate_image(prompt):
     except Exception as e:
         print(f"Error in generate_image: {e}")
         return None
-
-from bs4 import BeautifulSoup
-
+    
 def html_formatting(article_html, image_link):
     # Parse the HTML content
     soup = BeautifulSoup(article_html, 'html.parser')
