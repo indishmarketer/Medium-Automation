@@ -46,7 +46,7 @@ def main():
                 logging.info("HTML Formatted Article: {}".format(html_formatted_article))
 
                 logging.info("--- Step 3: Generating Title ---")
-                story_title = medium_story_creator.generate_title(html_formatted_article)
+                story_title = medium_story_creator.generate_title(medium_article)
                 logging.info("Story Title: {}".format(story_title))
 
                 logging.info("--- Step 4: Generating Image ---")
